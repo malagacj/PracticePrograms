@@ -11,6 +11,12 @@ class Player:
     def __repr__(self):
         return f'<Player ({self.name})>'
 
+    def play(self):
+        self.counter -= random.randrange(50)
+
+    def get_counter_verbose(self):
+        return f'El jugador {self.name} obtuvo {self.counter} puntos'
+
 
 def main():
     print('Bienvenido')
@@ -24,8 +30,8 @@ def main():
     for x in range(1, NUMERO_DE_RONDAS+1):
         print(f'Ronda #{x}')
         for jugador in jugadores:
-            jugador.counter -= random.randrange(50)
-            print(f'El jugador {jugador.name} obtuvo {jugador.counter} puntos')
+            jugador.play()
+            print(jugador.get_counter_verbose())
 
     marcador = {}
 
